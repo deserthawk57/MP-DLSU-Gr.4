@@ -6,10 +6,10 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.05263
-margin_top = 2.10529
-margin_right = 1.05261
-margin_bottom = 2.10529
+margin_left = 0.150118
+margin_top = 0.300282
+margin_right = 0.150146
+margin_bottom = 0.300293
 
 [node name="Panel" type="Panel" parent="."]
 margin_left = -0.34515
@@ -101,7 +101,35 @@ margin_top = 107.053
 margin_right = 338.053
 margin_bottom = 127.053
 text = "Confirm"
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+margin_left = 405.0
+margin_top = 171.0
+margin_right = 609.0
+margin_bottom = 303.0
+
+[node name="Your Dead" type="Label" parent="PopupPanel"]
+margin_left = 24.839
+margin_top = 22.5429
+margin_right = 181.839
+margin_bottom = 36.5429
+text = "Omae wa mou shindeiru"
+
+[node name="Score_Label" type="Label" parent="PopupPanel"]
+margin_left = 46.0275
+margin_top = 57.76
+margin_right = 163.028
+margin_bottom = 71.76
+text = "Your final score is"
+
+[node name="Label" type="Label" parent="PopupPanel"]
+margin_left = 66.1907
+margin_top = 77.5895
+margin_right = 134.191
+margin_bottom = 91.5895
+text = "Score here"
 [connection signal="text_changed" from="Panel/Angle_Input" to="Panel" method="_on_Angle_Input_text_changed"]
 [connection signal="pressed" from="Panel/Acute_Button" to="Panel" method="_on_Acute_Button_pressed"]
 [connection signal="pressed" from="Panel/Obtuse_Button" to="Panel" method="_on_Obtuse_Button_pressed"]
+[connection signal="pressed" from="Panel/Exit_Button" to="Panel" method="_on_Exit_Button_pressed"]
 [connection signal="pressed" from="Panel/Confirm_Button" to="Panel" method="_on_Confirm_Button_pressed"]

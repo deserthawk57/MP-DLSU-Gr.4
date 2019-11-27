@@ -22,9 +22,12 @@ func _on_Confirm_Button_pressed():
 	print(angle_type)
 	print(global.angle)
 
-func _on_Angle_Input_text_changed(text):
+func _on_Angle_Input_text_changed(text): # function for changing angle of rocket sprite
 	global.angle = text
 	if int(global.angle) < 0 or int (global.angle) > 180 or global.angle == '':
 		get_node('/root/Main/Rocket/Rocket_Sprite').rotation_degrees = 0 #rotation degrees from Rocket sprite in rocket scene
 	else:
 		get_node('/root/Main/Rocket/Rocket_Sprite').rotation_degrees = int(text) - 90
+
+func _on_Exit_Button_pressed():
+	get_tree().change_scene('res://Main Menu.tscn') # goes back to main menu
