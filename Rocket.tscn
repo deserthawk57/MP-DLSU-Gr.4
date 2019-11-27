@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Rocket.gd" type="Script" id=1]
-[ext_resource path="res://Rocket 1.png" type="Texture" id=2]
+[ext_resource path="res://assets/Rocket 1.png" type="Texture" id=2]
 
 [node name="Rocket" type="Node2D"]
 script = ExtResource( 1 )
