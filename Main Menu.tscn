@@ -1,0 +1,24 @@
+[gd_scene format=2]
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -1.10803
+margin_top = 2.21606
+margin_right = 1023.89
+margin_bottom = 602.216
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+margin_left = 1.10803
+margin_top = -1.10803
+margin_right = 1023.11
+margin_bottom = 599.892
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 327.0
+margin_top = 239.0
+margin_right = 637.0
+margin_bottom = 259.0
+text = "Start"
