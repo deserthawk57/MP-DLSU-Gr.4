@@ -12,10 +12,10 @@ margin_right = 1.05261
 margin_bottom = 2.10529
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = -3.05267
-margin_top = 465.947
-margin_right = 1023.95
-margin_bottom = 596.947
+margin_left = -0.34515
+margin_top = 468.654
+margin_right = 1026.66
+margin_bottom = 599.654
 script = ExtResource( 1 )
 
 [node name="OptionButton" type="OptionButton" parent="Panel"]
@@ -101,6 +101,7 @@ margin_top = 107.053
 margin_right = 338.053
 margin_bottom = 127.053
 text = "Confirm"
+[connection signal="text_changed" from="Panel/Angle_Input" to="Panel" method="_on_Angle_Input_text_changed"]
 [connection signal="pressed" from="Panel/Acute_Button" to="Panel" method="_on_Acute_Button_pressed"]
 [connection signal="pressed" from="Panel/Obtuse_Button" to="Panel" method="_on_Obtuse_Button_pressed"]
 [connection signal="pressed" from="Panel/Confirm_Button" to="Panel" method="_on_Confirm_Button_pressed"]
