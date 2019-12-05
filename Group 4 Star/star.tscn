@@ -1,20 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://StaticBody2D.gd" type="Script" id=1]
 [ext_resource path="res://star.png" type="Texture" id=2]
 
-[sub_resource type="SegmentShape2D" id=1]
-a = Vector2( 622.623, 200.93 )
-b = Vector2( 606.333, 407.558 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 161.782
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 119.041
+radius = 290.438
 
-[sub_resource type="SegmentShape2D" id=3]
-a = Vector2( -3.24069, -74.6006 )
-b = Vector2( 86.233, 144.347 )
-
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 113.94
 
 [node name="Node2D" type="Node2D"]
@@ -27,30 +22,21 @@ position = Vector2( 508.286, 303.579 )
 scale = Vector2( 1.32481, 1.32481 )
 texture = ExtResource( 2 )
 
-[node name="right hitbox area" type="Area2D" parent="StaticBody2D"]
+[node name="boom" type="Area2D" parent="StaticBody2D"]
 
-[node name="slight hitbox right" type="CollisionShape2D" parent="StaticBody2D/right hitbox area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/boom"]
+position = Vector2( 492.747, 299.726 )
 shape = SubResource( 1 )
 
-[node name="boom hitbox area" type="Area2D" parent="StaticBody2D"]
+[node name="damage" type="Area2D" parent="StaticBody2D"]
 
-[node name="boom hitbox" type="CollisionShape2D" parent="StaticBody2D/boom hitbox area"]
-position = Vector2( 491.863, 299.63 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/damage"]
+position = Vector2( 490.301, 298.374 )
 shape = SubResource( 2 )
-
-[node name="left hitbox area" type="Area2D" parent="StaticBody2D"]
-
-[node name="slight hitbox left" type="CollisionShape2D" parent="StaticBody2D/left hitbox area"]
-position = Vector2( 334.978, 300.232 )
-shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 visible = false
 position = Vector2( 492.294, 301.455 )
-shape = SubResource( 4 )
-[connection signal="area_entered" from="StaticBody2D/right hitbox area" to="StaticBody2D" method="_on_right_hitbox_area_area_entered"]
-[connection signal="tree_entered" from="StaticBody2D/right hitbox area/slight hitbox right" to="StaticBody2D" method="_on_slight_hitbox_right_tree_entered"]
-[connection signal="area_entered" from="StaticBody2D/boom hitbox area" to="StaticBody2D" method="_on_boom_hitbox_area_area_entered"]
-[connection signal="tree_entered" from="StaticBody2D/boom hitbox area/boom hitbox" to="StaticBody2D" method="_on_boom_hitbox_tree_entered"]
-[connection signal="area_entered" from="StaticBody2D/left hitbox area" to="StaticBody2D" method="_on_left_hitbox_area_area_entered"]
-[connection signal="tree_entered" from="StaticBody2D/left hitbox area/slight hitbox left" to="StaticBody2D" method="_on_slight_hitbox_left_tree_entered"]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="StaticBody2D/boom" to="StaticBody2D" method="_on_boom_body_entered"]
+[connection signal="body_entered" from="StaticBody2D/damage" to="StaticBody2D" method="_on_damage_body_entered"]

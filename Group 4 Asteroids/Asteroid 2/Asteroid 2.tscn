@@ -1,48 +1,49 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://asteroid.gd" type="Script" id=1]
+[ext_resource path="res://Asteroid 2.gd" type="Script" id=1]
 [ext_resource path="res://StaticBody2D.gd" type="Script" id=2]
-[ext_resource path="res://Asteroid.png" type="Texture" id=3]
+[ext_resource path="res://asteroid2.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 95.6178
-height = 39.4625
+radius = 70.75
+height = 22.6
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 122.671
-height = 34.5752
+radius = 75.2646
+height = 29.4428
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 126.804
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 60.4927
+height = 26.958
 
-[node name="Node2D" type="Node2D"]
+[node name="Asteroid 2" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( -531.858, -289.256 )
+position = Vector2( 5.54993, -2.75006 )
 script = ExtResource( 2 )
 
-[node name="Asteroid" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 527, 301 )
+[node name="asteroid2" type="Sprite" parent="StaticBody2D"]
 texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( -10.3, 9.39996 )
+rotation = 1.14319
+shape = SubResource( 1 )
 
 [node name="damage" type="Area2D" parent="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/damage"]
-position = Vector2( 532.191, 287.329 )
-rotation = 1.52367
-shape = SubResource( 1 )
+position = Vector2( -10.2913, 5.14563 )
+rotation = 1.14319
+shape = SubResource( 2 )
 
 [node name="boom" type="Area2D" parent="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/boom"]
-position = Vector2( 530.244, 289.29 )
-rotation = 1.95128
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2( 531.759, 290.605 )
+position = Vector2( -11.788, 7.12067 )
+rotation = 1.14319
 shape = SubResource( 3 )
 [connection signal="area_entered" from="StaticBody2D/damage" to="StaticBody2D" method="_on_damage_area_entered"]
 [connection signal="area_entered" from="StaticBody2D/boom" to="StaticBody2D" method="_on_boom_area_entered"]
