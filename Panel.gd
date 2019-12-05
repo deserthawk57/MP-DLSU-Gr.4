@@ -22,6 +22,10 @@ func _on_Confirm_Button_pressed():
 	
 	if int(global.angle) < 0 or int (global.angle) > 180: # error handling for negative numbers and higher than 180
 		print ('The number you have typed is not valid')
+		$ErrorDialog.popup()
+#		while $ErrorDialog.visible:
+#			if $ErrorDialog.visible == false:
+				#break
 		return
 	get_node('/root/Main/Rocket/KinematicBody2D/Rocket_Sprite').rotation_degrees = 0
 	print(angle_type)

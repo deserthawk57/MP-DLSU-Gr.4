@@ -6,5 +6,6 @@ var lives = 5
 var score
 var diffuculty = 1
 
+
 func _ready():
 	pass
