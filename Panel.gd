@@ -19,9 +19,11 @@ func _on_Obtuse_Button_pressed():
 
 func _on_Confirm_Button_pressed():
 	global.angle = $Angle_Input.text
-	get_node('/root/Main/Rocket/KinematicBody2D/Rocket_Sprite').rotation_degrees = 0
+	
 	if int(global.angle) < 0 or int (global.angle) > 180: # error handling for negative numbers and higher than 180
 		print ('The number you have typed is not valid')
+		return
+	get_node('/root/Main/Rocket/KinematicBody2D/Rocket_Sprite').rotation_degrees = 0
 	print(angle_type)
 	print(global.angle)
 	emit_signal('rocket_go',global.angle)
