@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var User_interface = preload ("res://User_Interface.tscn")
 var velocity = Vector2()
-var speed = 100
-signal die
+var speed = 200
+signal rocket_die
 
 
 func _ready():
@@ -13,13 +13,18 @@ func rotation_dir(dir):
 	
 	rotation = deg2rad(int(dir)-90)
 	velocity = Vector2(0,-speed).rotated(rotation)
+	set_physics_process(true)
 	
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
+
 	if collision_info:
 		var collision_point = collision_info.position
+		emit_signal('rocket_die')
+		print(collision_info.collider)
 		velocity = Vector2()
-		emit_signal('die')
+		set_physics_process(false)
+		
 		
 
 #var speed = 200

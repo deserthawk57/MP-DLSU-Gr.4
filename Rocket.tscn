@@ -1,11 +1,44 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://assets/Rocket 1.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 92.6561
+radius = 74.5684
 height = 265.044
+
+[sub_resource type="Animation" id=2]
+resource_name = "Damage"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.968627, 0.160784, 0.160784, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
 
 [node name="Rocket" type="Node2D"]
 
@@ -20,3 +53,7 @@ shape = SubResource( 1 )
 
 [node name="Rocket_Sprite" type="Sprite" parent="KinematicBody2D"]
 texture = ExtResource( 2 )
+
+[node name="EffectAnimation" type="AnimationPlayer" parent="KinematicBody2D"]
+anims/Damage = SubResource( 2 )
+anims/Flash = SubResource( 3 )

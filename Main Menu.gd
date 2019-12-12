@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready():
-	pass # Replace with function body.
+	global.lives = 5
 
 
 func _on_Button_pressed():

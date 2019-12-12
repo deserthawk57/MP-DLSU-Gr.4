@@ -1,14 +1,28 @@
 extends Panel
 
 var angle_type
-
 signal rocket_go
 
 func _ready():
-	pass # Replace with function body. If it's better.
+	get_node('/root/Main/Rocket/KinematicBody2D').connect('rocket_die',self,'life_loss')
 
-#plan to change angle type to integer
 
+func life_loss():
+	if global.lives == 0:
+		return
+	global.lives -= 1
+	var lives = global.lives
+	print (lives)
+	if lives == 4:
+		$Life_4.visible = false
+	elif lives == 3:
+		$Life_3.visible = false
+	elif lives == 2:
+		$Life_2.visible = false
+	elif lives == 1:
+		$Life_1.visible = false
+	else:
+		$Game_Over_PopUp.popup()
 func _on_Acute_Button_pressed():
 	angle_type = 'acute' 
 	$Angle_Type_Label.text = 'Angle Type: Acute'
@@ -41,3 +55,4 @@ func _on_Angle_Input_text_changed(text): # function for changing angle of rocket
 
 func _on_Exit_Button_pressed():
 	get_tree().change_scene('res://Main Menu.tscn') # goes back to main menu
+
