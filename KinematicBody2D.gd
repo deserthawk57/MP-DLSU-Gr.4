@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var rocket = preload ("res://User_Interface.tscn")
+var User_interface = preload ("res://User_Interface.tscn")
 var velocity = Vector2()
 var speed = 200
 
@@ -28,7 +28,6 @@ func hurt(amount = 1):
 func boom(amount = 4):
 	health -= amount
 	get_node("HUDCanvasLayer").update(health)
-#	$KinematicBody2D.set_position(Vector2(0,-15))
 	set_physics_process(false)
 	
 func rotation_dir(dir):
@@ -43,5 +42,6 @@ func _physics_process(delta):
 		emit_signal('rocket_die')
 		velocity = Vector2(0,0)
 		set_physics_process(false)
+
 func _on_DamageTimer_timeout():
 	effects_animation.play("Rest")
