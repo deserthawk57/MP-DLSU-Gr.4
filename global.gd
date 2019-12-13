@@ -4,7 +4,7 @@ extends Node
 var angle
 var lives = 5
 var score
-var diffuculty = 1
+var difficulty = 1
 
 
 func _ready():
