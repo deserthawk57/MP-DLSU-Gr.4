@@ -4,9 +4,9 @@ const RngGd = "res://NoRepeatRNG.gd"
 onready var obstacle_asteroid = preload("res://asteroid.tscn")
 onready var obstacle_star = preload("res://star.tscn")
 onready var obstacle_blackhole = preload("res://BlackHole.tscn")
-var difficulty = 1
+var difficulty = global.difficulty
 
-var spawn = 10
+var spawn = 15
 var rand
 var y = 0
 func _ready():
@@ -24,7 +24,7 @@ func spawn():
 		var obstacle2 = obstacle_star.instance()
 		var obstacle3 = obstacle_blackhole.instance()
 		var pos = Vector2()
-		var x = rand_range(10,1010)
+		var x = int(rand_range(10,1010))
 		preload("NoRepeatRNG.gd").new(x)
 		pos.x = x
 		pos.y = ((x-525)*(x-525))/750 + 75
