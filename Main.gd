@@ -11,6 +11,11 @@ func _ready():
 func restart():
 	print('hi')
 	rocket.set_position(start_pos)
-
+	global.difficulty +=1
+	var last_round = get_node("Spawner_obstacle")
+	remove_child(last_round)
+	last_round.call_deferred("free")
+	var next_round = preload("Spawner_obstacle.tscn").instance()
+	add_child(next_round)
 	
 
