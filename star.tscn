@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://StaticBody2D.gd" type="Script" id=1]
-[ext_resource path="res://star.png" type="Texture" id=2]
+[ext_resource path="res://assets/star.png" type="Texture" id=2]
 
 [sub_resource type="SegmentShape2D" id=1]
 a = Vector2( 622.623, 200.93 )
