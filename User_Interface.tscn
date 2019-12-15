@@ -13,7 +13,6 @@ margin_right = 0.150146
 margin_bottom = 24.3003
 
 [node name="Panel" type="Panel" parent="."]
-editor/display_folded = true
 margin_left = -0.34515
 margin_top = 448.654
 margin_right = 1026.66
@@ -113,6 +112,20 @@ text = "No Angle lower than 0 and Higher than 180"
 align = 1
 valign = 1
 
+[node name="Score" type="Label" parent="Panel"]
+margin_left = 896.0
+margin_top = 8.0
+margin_right = 1007.0
+margin_bottom = 22.0
+text = "Score: 0"
+
+[node name="Difficulty" type="Label" parent="Panel"]
+margin_left = 897.61
+margin_top = 31.5054
+margin_right = 937.61
+margin_bottom = 45.5054
+text = "Difficulty: 1"
+
 [node name="Game_Over_PopUp" type="PopupPanel" parent="."]
 editor/display_folded = true
 margin_left = 405.0
@@ -142,7 +155,6 @@ margin_bottom = 128.0
 text = "Score here"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-editor/display_folded = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 

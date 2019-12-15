@@ -30,6 +30,7 @@ func _on_Confirm_Button_pressed():
 	get_node('/root/Main/KinematicBody2D/Sprite').rotation_degrees = 0
 	print(angle_type)
 	print(global.angle)
+	global.angle_type = angle_type
 	emit_signal('rocket_go',global.angle)
 
 func _on_Angle_Input_text_changed(text): # function for changing angle of rocket sprite

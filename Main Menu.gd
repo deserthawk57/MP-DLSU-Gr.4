@@ -2,8 +2,8 @@ extends Control
 
 
 func _ready():
-	pass # Replace with function body.
-
+	global.difficulty = 1
+	global.score= 0
 
 func _on_Button_pressed():
 	get_tree().change_scene('res://Main.tscn')

@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Rest"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -52,33 +52,27 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 17.0
 height = 72.0
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 position = Vector2( 0.24292, 0 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.4361, 0.5 )
 scale = Vector2( 0.320872, 0.25625 )
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="EffectsAnimation" type="AnimationPlayer" parent="."]
 anims/Damage = SubResource( 1 )
 anims/Flash = SubResource( 2 )
-anims/Rest = SubResource( 4 )
+anims/Rest = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="HUDCanvasLayer" parent="." instance=ExtResource( 3 )]
